@@ -1,5 +1,6 @@
 package com.gmail.anderson.dslist.controllers;
 
+import com.gmail.anderson.dslist.DTO.GameMinDTO;
 import com.gmail.anderson.dslist.entities.Game;
 import com.gmail.anderson.dslist.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class GameController {
     @Autowired
     GameService service;
     @GetMapping
-    public List<Game> findAll(){
-        List<Game> result = service.findAll();
+    public List<GameMinDTO> findAll(){
+        List<GameMinDTO> result = service.findAll();
         return result;
     }
 }
