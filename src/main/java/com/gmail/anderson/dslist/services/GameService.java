@@ -25,6 +25,5 @@ public class GameService {
     public GameDto findById(Long id){
         Game game = gameRepository.findById(id).get();
         return new GameDto(game);
-
     }
 }
