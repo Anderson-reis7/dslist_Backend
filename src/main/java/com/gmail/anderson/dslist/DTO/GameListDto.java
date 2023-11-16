@@ -11,7 +11,8 @@ import org.springframework.beans.BeanUtils;
 @Getter
 public class GameListDto {
     private Long id;
-    private  String name;
+    private String name;
+
     public GameListDto(GameList entity) {
         BeanUtils.copyProperties(entity, this);
     }
