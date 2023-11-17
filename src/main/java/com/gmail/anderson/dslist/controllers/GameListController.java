@@ -2,14 +2,12 @@ package com.gmail.anderson.dslist.controllers;
 
 import com.gmail.anderson.dslist.DTO.GameListDto;
 import com.gmail.anderson.dslist.DTO.GameMinDTO;
+import com.gmail.anderson.dslist.DTO.ReplacementDto;
 import com.gmail.anderson.dslist.services.GameListService;
 
 import com.gmail.anderson.dslist.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +28,10 @@ public class GameListController {
     public List<GameMinDTO> findByList(@PathVariable Long listId){
         List<GameMinDTO> result = gameService.findByLists(listId);
         return result;
+    }
+    @PostMapping(value = "/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDto body){
+        service.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
 
 }
